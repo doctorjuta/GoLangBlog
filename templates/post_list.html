@@ -1,0 +1,11 @@
+{{template "base" .}}
+
+{{define "title"}}.PageTitle{{end}}
+
+{{define "main"}}
+    <p>{{.PageTitle}}:</p>
+    {{range .Posts}}
+        <p>{{.Title}}</p>
+    {{end}}
+    <p><a href="/new/">New</a></p>
+{{end}}

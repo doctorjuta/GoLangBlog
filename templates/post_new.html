@@ -1,0 +1,19 @@
+{{template "base" .}}
+
+{{define "title"}}New post{{end}}
+
+{{define "main"}}
+    <p>New post:</p>
+    <form action="/new/" method="post">
+        <div>
+            <input type="text" name="title" placecholder="Title" />
+        </div>
+        <div>
+            <textarea name="content" placeholder="Content"></textarea>
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+        <input type="hidden" name="new_post" value="1" />
+    </form>
+{{end}}

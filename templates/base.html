@@ -1,0 +1,18 @@
+{{define "base"}}
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="MobileOptimized" content="width" />
+            <meta name="HandheldFriendly" content="True"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+            <meta name="description" content="Some test description">
+            <meta name="keywords" content="keyword1,keyword2,keyword3">
+            <meta name="author" content="Andrii Dutchak">
+            <title>Golang test project: {{template "title" .}}</title>
+        </head>
+        <body>
+            {{template "main" .}}
+        </body>
+    </html>
+{{end}}
