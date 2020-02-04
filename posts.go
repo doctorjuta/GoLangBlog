@@ -22,15 +22,33 @@ func (p *BlogPost) GetArchive() []Post {
 	var Posts []Post
 	DB.Connect()
 	defer DB.Close()
-	DB.cnct.AutoMigrate(&Post{})
 	DB.cnct.Find(&Posts)
 	return Posts
 }
 
-func (p *BlogPost) NewPost(post Post) int {
+func (p *BlogPost) NewPost(post Post) uint {
 	DB.Connect()
 	defer DB.Close()
-	DB.cnct.AutoMigrate(&Post{})
 	DB.cnct.Create(&post)
-	return 1
+	return post.ID
+}
+
+func (p *BlogPost) GetPostByID(id string) Post {
+	var target_post Post
+	DB.Connect()
+	defer DB.Close()
+	DB.cnct.First(&target_post, id)
+	return target_post
+}
+
+func (p *BlogPost) RemovePost(id string) {
+	var target_post Post
+	DB.Connect()
+	defer DB.Close()
+	target_post = p.GetPostByID(id)
+	if target_post.Title != "" {
+		DB.Connect()
+		defer DB.Close()
+		DB.cnct.Delete(&target_post)
+	}
 }

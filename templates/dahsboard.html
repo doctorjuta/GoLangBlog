@@ -5,7 +5,7 @@
 {{define "main"}}
     <p>{{.PageTitle}}:</p>
     {{range .Posts}}
-        <p>{{.Title}}</p>
-        <p>{{.Content}}</p>
+        <p>{{.Title}} <a href="/remove/{{.ID}}/">Remove</a></p>
     {{end}}
+    <p><a href="/new/">New</a></p>
 {{end}}

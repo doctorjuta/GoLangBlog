@@ -1,1 +1,1 @@
-go run blog.go posts.go database.go controller.go
+go run blog.go posts.go database.go controller.go users.go

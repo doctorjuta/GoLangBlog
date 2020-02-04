@@ -1,0 +1,12 @@
+{{template "base" .}}
+
+{{define "title"}}{{.PageTitle}}{{end}}
+
+{{define "main"}}
+    <p>Remove post with title {{.Post.Title}}?</p>
+    <form action="/remove/{{.Post.ID}}/" method="post">
+        <input type="hidden" name="post_id" value="{{.Post.ID}}" />
+        <p><button type="submit">Remove</button></p>
+        <p><a href="/">Go back</a></p>
+    </form>
+{{end}}
